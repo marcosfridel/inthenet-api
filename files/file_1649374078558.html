@@ -1,0 +1,21 @@
+<script>
+  if ("WebSocket" in window) { 
+      let ws = new WebSocket("ws://localhost:8081");
+
+
+      ws.onopen = function() {
+        console.log("Connected to Server");
+        ws.send('Envio datita');
+      };
+      ws.onmessage = function ({data}) {
+        alert(`${data}`);
+      };
+      ws.onclose = function() {
+        console.log("Disconnected to Server");
+      };      
+    }
+
+
+</script>
+
+  
